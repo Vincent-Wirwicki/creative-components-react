@@ -1,0 +1,21 @@
+.wrap {
+    user-select: none;
+}
+
+.letter {
+    will-change: transform;
+    transform-style: preserve-3d;
+    transition: transform;
+}
+
+.wrap:hover>div:nth-child(1) .letter {
+    transform: rotateX(-90deg);
+}
+
+.wrap>div:nth-child(2) .letter {
+    transform: rotateX(-90deg);
+}
+
+.wrap:hover>div:nth-child(2) .letter {
+    transform: rotateX(0deg);
+}
