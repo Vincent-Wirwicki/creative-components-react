@@ -26,7 +26,7 @@ export default function PixelTrail({ cols }: { cols: number }) {
     <LazyMotion features={domAnimation}>
       <div
         ref={gridEl}
-        className={"grid absolute top-0 left-0 w-screen h-screen"}
+        className={"grid absolute top-0 left-0 w-screen h-screen "}
         style={{
           gridTemplateColumns: `repeat(${cols}, 1fr)`,
         }}
