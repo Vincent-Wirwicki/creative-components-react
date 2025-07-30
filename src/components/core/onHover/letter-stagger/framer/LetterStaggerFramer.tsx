@@ -3,31 +3,31 @@
 import { motion, type Variants } from "framer-motion";
 
 export default function LetterStaggerFramer({
-  letters,
-  delay = 0.075,
-  duration = 0.25,
+  text = "stagger",
+  delay = 0.05,
+  duration = 0.3,
   easing = "cubic-bezier(0.5, 1, 0.89, 1)",
 }: {
-  letters: string;
+  text: string;
   delay?: number;
   duration?: number;
   easing?: string;
 }) {
   return (
     <motion.div
-      className="relative h-16 w-52 border cursor-pointer text-4xl uppercase"
+      className="relative uppercase"
       initial="initial"
       whileHover="hover"
     >
       <Letters
-        letters={letters}
+        text={text}
         origin="top"
         delay={delay}
         duration={duration}
         easing={easing}
       />
       <Letters
-        letters={letters}
+        text={text}
         origin="bottom"
         delay={delay}
         duration={duration}
@@ -38,19 +38,19 @@ export default function LetterStaggerFramer({
 }
 
 function Letters({
-  letters,
+  text,
   origin,
   delay,
   duration,
   easing,
 }: {
-  letters: string;
+  text: string;
   origin: "top" | "bottom";
   delay: number;
   duration: number;
   easing: string;
 }) {
-  // to add more fancy anim here
+  // you can add more fancy anim here
   const letterVariants: Variants = {
     initial: {
       rotateX: origin === "top" ? 0 : 90,
@@ -61,8 +61,8 @@ function Letters({
   };
 
   return (
-    <div className="absolute">
-      {letters.split("").map((letter, i) => (
+    <div className="absolute flex">
+      {text.split("").map((letter, i) => (
         <motion.span
           key={`${origin}-${letter}-${i}`}
           className="inline-block"
@@ -77,7 +77,7 @@ function Letters({
             easings: easing,
           }}
         >
-          {letter === " " ? "\u00A0" : letter}{" "}
+          {letter === " " ? "\u00A0" : letter}
         </motion.span>
       ))}
     </div>

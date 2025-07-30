@@ -1,29 +1,29 @@
 "use client";
 
-import styles from "./letterStagger.module.css";
+import styles from "./texttagger.module.css";
 
-export default function LetterStaggerCSSOnly({
-  letters,
+export default function LettertaggerCSSOnly({
+  text,
   delay = 0.075,
   duration = 0.25,
   easing = "cubic-bezier(0.5, 1, 0.89, 1)",
 }: {
-  letters: string;
+  text: string;
   delay?: number;
   duration?: number;
   easing?: string;
 }) {
   return (
     <div className={`${styles.wrap} relative uppercase`}>
-      <Letters
-        letters={letters}
+      <Letter
+        text={text}
         origin="top"
         delay={delay}
         duration={duration}
         easing={easing}
       />
-      <Letters
-        letters={letters}
+      <Letter
+        text={text}
         origin="bottom"
         delay={delay}
         duration={duration}
@@ -33,14 +33,14 @@ export default function LetterStaggerCSSOnly({
   );
 }
 
-function Letters({
-  letters,
+function Letter({
+  text,
   origin,
   delay,
   duration,
   easing,
 }: {
-  letters: string;
+  text: string;
   origin: "top" | "bottom";
   delay: number;
   duration: number;
@@ -48,7 +48,7 @@ function Letters({
 }) {
   return (
     <div className="absolute flex">
-      {letters.split("").map((letter, i) => (
+      {text.split("").map((letter, i) => (
         <span
           key={`${origin}-${letter}-${i}`}
           className={`${styles.letter} inline-block`}

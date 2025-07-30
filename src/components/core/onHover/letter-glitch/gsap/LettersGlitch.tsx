@@ -5,19 +5,19 @@ import { useGSAP } from "@gsap/react";
 import { useRef, useState } from "react";
 
 export default function LettersGlith({
-  text,
+  text = "demo",
+  glitchText = "°*²=+\\+=-@!'",
   className,
-  duration = 0.2,
-  delay = 0.1,
+  duration = 0.1,
+  delay = 0.075,
 }: {
   text: string;
+  glitchText?: string;
   className?: string;
   duration?: number;
   delay?: number;
 }) {
-  // const text = "on glitch";
-  const specialChar = "°*²=+\\+=-@!'";
-  const specialChars = [...specialChar.split("")];
+  const specialChars = [...glitchText.split("")];
   const container = useRef(null!);
   const [isHover, setIsHover] = useState(false);
 
@@ -35,6 +35,7 @@ export default function LettersGlith({
           { opacity: 0 },
           {
             duration: duration,
+            // repeat: 2,
             opacity: 1,
             delay: i * delay,
             onStart: () => {

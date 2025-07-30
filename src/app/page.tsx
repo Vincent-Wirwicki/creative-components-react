@@ -3,7 +3,7 @@
 // import LetterStagger from "@/components/onHover/letter-stagger/framer/LetterStaggerFramer";
 // import dynamic from "next/dynamic";
 
-import GridTrail from "@/components/background/pixel-trail/framer/PixelTrail";
+import GridTrail from "@/components/core/background/pixel-trail/framer/PixelTrail";
 
 // import LazyGrid from "@/components/background/grid-mouse/LazyGrid";
 
@@ -14,7 +14,7 @@ import GridTrail from "@/components/background/pixel-trail/framer/PixelTrail";
 //     ssr: false,
 //   }
 // );
-import ParticlesCloud from "@/components/background/particles-cloud/ParticlesCloud";
+// import ParticlesCloud from "@/components/background/particles-cloud/ParticlesCloud";
 // import ImageTrail from "@/components/onMove/image-trail/ImageTrail";
 
 // import ImageTrail from "@/components/onMove/image-trail/ImageTrail";
@@ -31,15 +31,13 @@ export default function Home() {
   //   "/img/low-res/lizgrin-f-3.jpg",
   //   "/img/low-res/lizgrin-f-4.jpg",
   //   "/img/low-res/lizgrin-f-5.jpg",
-  // ];
+  // ];flex items-center justify-center w-screen h-screen
   return (
-    <div className="flex items-center justify-center w-screen h-screen">
-      <div className="flex flex-col gap-10 w-3/4">
-        {/* <ParticlesCloud /> */}
-        {/* <LazyGrid /> */}
-        <GridTrail cols={20}/>
-        {/* <ImageTrail urls={urls} threshold={80} height={150} width={150} /> */}
-      </div>
+    <div className="">
+      {/* <ParticlesCloud /> */}
+      {/* <LazyGrid /> */}
+      <GridTrail cols={20} />
+      {/* <ImageTrail urls={urls} threshold={80} height={150} width={150} /> */}
     </div>
   );
 }

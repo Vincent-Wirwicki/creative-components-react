@@ -14,7 +14,7 @@ export default function PixelTrail({ cols }: { cols: number }) {
       if (!gridEl.current) return;
       const { height, width } = gridEl.current.getBoundingClientRect();
       const size = width / cols; // Square size
-      const rows = Math.floor(height / size); // Ensure full squares
+      const rows = Math.floor(height / size);
       setGrid(rows * cols);
     };
     updateGrid();
@@ -33,13 +33,13 @@ export default function PixelTrail({ cols }: { cols: number }) {
       >
         {Array.from({ length: grid }, (_, i) => (
           <m.div
+            key={i}
             initial={{ opacity: 0, transition: { delay: 0.2 } }}
             whileHover={{
               opacity: [1, 0],
               transition: { duration: 0.75, ease: "backInOut" },
             }}
-            key={i}
-            className="w-full h-full p-2 bg-neutral-200"
+            className="w-full h-full p-2 bg-neutral-200 mix-blend-difference"
           />
         ))}
       </div>
